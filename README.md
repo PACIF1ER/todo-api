@@ -1,24 +1,41 @@
-# README
+# Todo App (Rails5 API and React Redux)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is simple Todo.
 
-Things you may want to cover:
+- Client: React + Redux (start with create-react-app)
+- Server: Rails5 API
 
-* Ruby version
+## Implementation Flow
 
-* System dependencies
+1. Add Todo API on Rails5.
+2. Add Todo Client with React.
+3. Convert from react to react-redux. (No api access)
+4. Update client to access Web API.
 
-* Configuration
+## How to launch
 
-* Database creation
+Go to rails root folder and install gems, then start server.
 
-* Database initialization
+```bash
+$ cd rails5-react-redux-todo
+$ bundle install --path vendor/bundle
+$ rails db:migrate
+$ rails s -p 8000
+=> Booting Puma
+=> Rails 5.0.0 application starting in development on http://localhost:8000
+=> Run `rails server -h` for more startup options
+Puma starting in single mode...
+```
 
-* How to run the test suite
+ Open anather console, go to client folder and install node modules, then start server.
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+$ cd ./client
+$ npm install
+$ npm start
+Compiled successfully!
 
-* Deployment instructions
+The app is running at http://localhost:3000/
+```
 
-* ...
+**notice** *For launching the two server, you should assign different port to each server.*

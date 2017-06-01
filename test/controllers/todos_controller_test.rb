@@ -12,7 +12,7 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create todo" do
     assert_difference('Todo.count') do
-      post todos_url, params: { todo: { body: @todo.body, completed: @todo.completed } }, as: :json
+      post todos_url, params: { todo: { completed: @todo.completed, order: @todo.order, title: @todo.title } }, as: :json
     end
 
     assert_response 201
@@ -24,7 +24,7 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update todo" do
-    patch todo_url(@todo), params: { todo: { body: @todo.body, completed: @todo.completed } }, as: :json
+    patch todo_url(@todo), params: { todo: { completed: @todo.completed, order: @todo.order, title: @todo.title } }, as: :json
     assert_response 200
   end
 
