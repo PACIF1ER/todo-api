@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
-  resources :todos
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # API
+  namespace :api do
+    namespace :v1 do
+      resources :tasks, only: [:index, :create, :destroy] do
+        post :complete, to: "tasks#complete"
+      end
+
+      resources :users, only: [:create]
+      resources :sessions, only: [:create]
+    end
+  end
 end

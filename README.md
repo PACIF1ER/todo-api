@@ -1,41 +1,19 @@
-# Todo App (Rails5 API and React Redux)
+```
+.___________.  ______    _______   ______
+|           | /  __  \  |       \ /  __  \
+`---|  |----`|  |  |  | |  .--.  |  |  |  |
+    |  |     |  |  |  | |  |  |  |  |  |  |
+    |  |     |  `--'  | |  '--'  |  `--'  |
+    |__|      \______/  |_______/ \______/
 
-This application is simple Todo.
-
-- Client: React + Redux (start with create-react-app)
-- Server: Rails5 API
-
-## Implementation Flow
-
-1. Add Todo API on Rails5.
-2. Add Todo Client with React.
-3. Convert from react to react-redux. (No api access)
-4. Update client to access Web API.
-
-## How to launch
-
-Go to rails root folder and install gems, then start server.
-
-```bash
-$ cd rails5-react-redux-todo
-$ bundle install --path vendor/bundle
-$ rails db:migrate
-$ rails s -p 8000
-=> Booting Puma
-=> Rails 5.0.0 application starting in development on http://localhost:8000
-=> Run `rails server -h` for more startup options
-Puma starting in single mode...
 ```
 
- Open anather console, go to client folder and install node modules, then start server.
+This is the sample backend for your 2 weeks Holiday Project
 
-```bash
-$ cd ./client
-$ npm install
-$ npm start
-Compiled successfully!
+Built on Rails 5.0.0 and Ruby 2.3.1
 
-The app is running at http://localhost:3000/
-```
-
-**notice** *For launching the two server, you should assign different port to each server.*
+- pull and cd into folder
+- bundle and rake db:setup
+- figaro install for environment variables
+- run rake secret and paste into variables (SECRET_KEY_BASE)
+- run rspec for tests
