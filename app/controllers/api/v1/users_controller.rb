@@ -1,5 +1,5 @@
 class API::V1::UsersController < API::BaseController
-  def create
+  def create 
     user = User.create(user_params)
     if user.persisted?
       token = user.generate_auth_token

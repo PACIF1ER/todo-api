@@ -1,9 +1,10 @@
 class API::V1::TasksController < API::BaseController
   before_action :authenticate_request
+
   def index
     tasks = current_api_user.tasks.order("created_at ASC")
     render(
-      json: tasks, each_serializer: API::V1::TaskSerializer, status: 200
+      json: tasks, status: 200
     )
   end
 
@@ -12,7 +13,7 @@ class API::V1::TasksController < API::BaseController
 
     if task.persisted?
       render(
-        json: task, serializer: API::V1::TaskSerializer, status: 200
+        json: task, status: 200
       )
     else
       render(
@@ -20,26 +21,20 @@ class API::V1::TasksController < API::BaseController
       )
     end
   end
-
+  
   def destroy
-     @task.destroy
-      if task.persisted?
-      render(
-        json: task, serializer: API::V1::TaskSerializer, status: 200
-      )
-    else
-      render(
-        json: { message: "Error creating task." }, status: 422
+    task = Task.find(params[:id])
+    task.destroy
+    render(
+        json: task, status: 200
       )
     end
-  end
-
 
   def complete
     task = Task.find_by(id: params[:task_id])
     task.update(complete: !task.complete)
     render(
-      json: task, serializer: API::V1::TaskSerializer,
+      json: task,
             meta: { message: "Task #{status(task)}" },
             status: 200
     )
@@ -48,7 +43,7 @@ class API::V1::TasksController < API::BaseController
   private
 
   def task_params
-    params.require(:task).permit(:description)
+    params.require(:task).permit(:id, :description, :complete)
   end
 
   def status(task)
