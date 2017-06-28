@@ -21,6 +21,13 @@ class API::V1::TasksController < API::BaseController
       )
     end
   end
+
+  def update
+   task = Task.find(params[:id])
+   task.update(task_params)
+   render(
+    json: task, satus: 200)
+  end
   
   def destroy
     task = Task.find(params[:id])
