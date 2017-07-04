@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 # API
   namespace :api do
     namespace :v1 do
-      resources :tasks, only: [:index, :create, :destroy] do
+      resources :tasks, only: [:index, :create, :update, :destroy] do
         post :complete, to: "tasks#complete"
       end
 
