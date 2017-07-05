@@ -37,28 +37,16 @@ class API::V1::TasksController < API::BaseController
       )
     end
 
-  def complete
-    task = Task.find_by(id: params[:task_id])
-    task.update(complete: !task.complete)
-    render(
-      json: task,
-            meta: { message: "Task #{status(task)}" },
-            status: 200
-    )
-  end
+ 
 
   private
 
   def task_params
-    params.require(:task).permit(:id, :description, :complete)
+    params.require(:task).permit(:body, :completed, :alert_at, :id)
   end
 
-  def status(task)
-    case task.complete
-    when true
-      "Completed"
-    when false
-      "Incompleted"
-    end
+  def _set_todo
+    task = Task.find(params[:id])
   end
+
 end

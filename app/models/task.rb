@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
   belongs_to :user
 
-  validates_presence_of :description
+  validates :body, presence: true
 end
