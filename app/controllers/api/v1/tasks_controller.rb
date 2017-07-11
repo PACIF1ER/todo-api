@@ -3,9 +3,9 @@ class API::V1::TasksController < API::BaseController
 
   def index
     tasks = current_api_user.tasks.order("created_at ASC")
-    render(
-      json: tasks, status: 200
-    )
+          
+          render json: tasks, status: 200
+
   end
 
   def create
