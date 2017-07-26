@@ -42,7 +42,7 @@ class API::V1::TasksController < API::BaseController
   private
 
   def task_params
-    params.require(:task).permit(:body, :completed, :alert_at, :id)
+    params.require(:task).permit(:body, :completed, :priority, :alert_at, :id)
   end
 
   def _set_todo

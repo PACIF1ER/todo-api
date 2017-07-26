@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+ class User < ActiveRecord::Base
   has_many :tasks
 
   validates :password, length: { minimum: 5 }, if: :password
