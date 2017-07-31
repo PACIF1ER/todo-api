@@ -6,7 +6,9 @@ class AddUser < ActiveRecord::Migration
       t.string :email
       t.string :password
       t.string :password_digest
-
+      t.boolean :email_confirmation, default: false
+      t.string :email_token
+ 
       t.timestamps null: false
     end
   end

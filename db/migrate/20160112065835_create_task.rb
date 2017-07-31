@@ -3,7 +3,7 @@ class CreateTask < ActiveRecord::Migration
     create_table :tasks do |t|
         t.text :body
         t.string :priority
-      t.timestamps null: false
+      	t.timestamps null: false
     end
   end
 end

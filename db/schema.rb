@@ -28,8 +28,10 @@ ActiveRecord::Schema.define(version: 20161227015102) do
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.boolean  "email_confirmation", default: false
+    t.string   "email_token"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
 end

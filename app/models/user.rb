@@ -1,4 +1,5 @@
  class User < ActiveRecord::Base
+  before_create :confirmation_token
   has_many :tasks
 
   validates :password, length: { minimum: 5 }, if: :password
@@ -26,4 +27,17 @@
   rescue
     "Guest"
   end
+
+  def email_activate
+    self.email_confirmation = true
+    self.email_token = nil
+    save!(:validate => false)
+  end
+
+  private
+    def confirmation_token
+      if self.email_token.blank?
+        self.email_token = SecureRandom.urlsafe_base64.to_s
+      end
+    end
 end

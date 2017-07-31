@@ -21,5 +21,17 @@ module Todo
     config.active_record.default_timezone = :local
 
     config.autoload_paths += %W(#{config.root}/app)
+    config.i18n.default_locale = :en
+    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+ActionMailer::Base.smtp_settings = {
+  :address              => 'smtp.gmail.com',
+  :domain               => 'gmail.com',
+  :port                 =>  587,
+  :user_name            => "bydlovasya1488@gmail.com",
+  :password             => "allahuakbar1998",
+  :authentication       => 'plain',
+  :enable_starttls_auto => true
+}
+
   end
 end
